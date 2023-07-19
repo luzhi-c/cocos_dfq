@@ -1,0 +1,37 @@
+{
+    "duelist": {
+        "moveSpeed": 3.75
+    },
+    "identity": {
+        "a": 1,
+        "b": 2
+    },
+    "states": {
+        "stay": "duelist/swordman/stay",
+        "move": "duelist/swordman/move",
+        "stun": "duelist/swordman/stun",
+        "flight": "duelist/swordman/flight",
+        "down": "duelist/swordman/down",
+        "sit": "duelist/swordman/sit",
+        "normalAttack": "duelist/swordman/normalAttack"
+    },
+    "aspect": [
+        {
+            "path": "duelist/swordman",
+            "avatar": "duelist/swordman",
+            "type": "frameani",
+            "parts": {
+                "hair": "hair/renewal",
+                "weapon": "katana/default",
+                "weapon_b": "katana/default_b",
+                "skin": "skin/default",
+                "pants": "pants/renewal",
+                "shoes": "shoes/renewal"
+            },
+            "name": "body"
+        }
+    ],
+    "skills": {
+        "normalAttack": "swordman/normalAttack"
+    }
+}

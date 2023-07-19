@@ -1,0 +1,2 @@
+node doFileCollider.js
+pause

@@ -1,0 +1,125 @@
+{
+    "info": {
+        "width": 1760,
+        "height": 736,
+        "theme": "lorien",
+        "type": "dungeon",
+        "ground": "grass",
+        "bgm": "lorien",
+        "bgs": "forest1",
+        "name": {
+            "cn": "洛兰",
+            "en": "Lorien"
+        }
+    },
+    "scope": {
+        "x": 240,
+        "y": 368,
+        "wv": -240
+    },
+    "far": "map/lorien/far",
+    "near": "map/lorien/near",
+    "floor": {
+        "top": "map/lorien/tile/2",
+        "extra": "map/lorien/tile/3",
+        "horizon": 327
+    },
+    "object": {
+        "up": [
+            {
+                "sprite": "map/lorien/flower/0",
+                "y": 40
+            },
+            {
+                "sprite": "map/lorien/flower/1",
+                "y": 40
+            },
+            {
+                "sprite": "map/lorien/flower/2",
+                "y": 40
+            },
+            {
+                "sprite": "map/lorien/flower/3",
+                "y": 40
+            },
+            {
+                "sprite": "map/lorien/flower/4",
+                "y": 40
+            },
+            {
+                "sprite": "map/lorien/stone/1",
+                "y": 35
+            },
+            {
+                "sprite": "map/lorien/stone/5",
+                "y": 40
+            },
+            {
+                "sprite": "map/lorien/stonePillar/0",
+                "y": 35
+            },
+            {
+                "sprite": "map/lorien/stonePillar/3",
+                "y": 35
+            },
+            {
+                "sprite": "map/lorien/tree/2",
+                "y": 20
+            },
+            {
+                "sprite": "map/lorien/tree/3",
+                "y": 20
+            },
+            {
+                "sprite": "map/lorien/tree/4",
+                "y": 20
+            },
+            {
+                "sprite": "map/lorien/tree/5",
+                "y": 25
+            }
+        ],
+        "floor": [
+            "map/lorien/grass/0",
+            "map/lorien/grass/1",
+            "map/lorien/grass/2",
+            "map/lorien/grass/3",
+            "map/lorien/trail/0",
+            "map/lorien/trail/1",
+            "map/lorien/trail/2"
+        ]
+    },
+    "actor": {
+        "down": [
+            "map/lorien/tree/0",
+            "map/lorien/tree/6",
+            "map/lorien/tree/7",
+            "map/lorien/tree/8",
+            "map/lorien/tree/9",
+            "map/lorien/stone/1",
+            "map/lorien/stone/5"
+        ],
+        "article": [
+            "map/lorien/tree/1",
+            "map/lorien/tree/5",
+            "map/lorien/tree/8",
+            "map/lorien/stone/0",
+            "map/lorien/stonePillar/3",
+            "map/lorien/flower/0",
+            "map/lorien/flower/1",
+            "map/lorien/flower/2",
+            "map/lorien/flower/3",
+            "map/lorien/flower/4",
+            "map/lorien/largeGrass",
+            "map/lorien/smallGrass"
+        ],
+        "enemy": {
+            "normal": [
+                "goblin",
+                "goblinThrower",
+                "tauArmy",
+                "lugaru"
+            ]
+        }
+    }
+}

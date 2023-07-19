@@ -1,0 +1,12 @@
+{
+    "name": "stun",
+    "tagMap": {
+        "stun": true,
+        "damage": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/damage1",
+        "duelist/swordman/damage2"
+    ],
+    "nextState": "stay"
+}

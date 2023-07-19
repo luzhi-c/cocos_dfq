@@ -1,0 +1,2 @@
+node doFile.js
+pause

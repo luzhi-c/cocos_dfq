@@ -1,0 +1,117 @@
+{
+    "name": "normalAttack",
+    "tagMap": {
+        "attack": true,
+        "attackRate": true,
+        "normalAttack": true,
+        "cancel": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/attack1",
+        "duelist/swordman/attack2",
+        "duelist/swordman/attack3"
+    ],
+    "nextState": "stay",
+    "coolDown": 300,
+    "frames": [
+        7,
+        6
+    ],
+    "ticks": [
+        3,
+        2,
+        2
+    ],
+    "easemove": [
+        {
+            "tick": 0
+        },
+        {
+            "tick": 2,
+            "param": [
+                {
+                    "power": 7,
+                    "speed": 0.9
+                },
+                {
+                    "power": 8.5,
+                    "speed": 0.9
+                }
+            ]
+        },
+        {
+            "tick": 2,
+            "param": [
+                {
+                    "power": 5.5,
+                    "speed": 0.8
+                },
+                {
+                    "power": 7,
+                    "speed": 0.8
+                }
+            ]
+        }
+    ],
+    "hitstop": [
+        80,
+        150
+    ],
+    "collider": [
+        "duelist/swordman/katana/12",
+        "duelist/swordman/katana/36"
+    ],
+    "sound" : {
+        "voice" : [
+            "actor/voice/swordman/atk1",
+            "actor/voice/swordman/atk2",
+            "actor/voice/swordman/atk3"
+        ],
+        "swing" : [
+            "actor/swing/swordman/weapon/katana1",
+            "actor/swing/swordman/weapon/katana2",
+            "actor/swing/swordman/weapon/katana3"
+        ],
+        "hitting" : [
+            "actor/hitting/swordman/weapon/katana1",
+            "actor/hitting/swordman/weapon/katana2"
+        ]
+    },
+    "attack" : [
+        {
+            "shake" : {
+                "xa" : -2,
+                "xb" : 2
+            },
+            "stun" : {
+                "time" : 400,
+                "power" : 6,
+                "speed" : 1
+            },
+            "effect" : "effect/hitting/smallSlash1"
+        },
+        {
+            "shake" : {
+                "xa" : -2,
+                "xb" : 2
+            },
+            "stun" : {
+                "time" : 500,
+                "power" : 8,
+                "speed" : 1
+            },
+            "effect" : "effect/hitting/smallSlash2"
+        },
+        {
+            "shake" : {
+                "xa" : -2,
+                "xb" : 2
+            },
+            "flight" : {
+                "power_z" : 8,
+                "power_x" : 1
+            },
+            "effect" : "effect/hitting/smallSlash3"
+        }
+    ]
+}

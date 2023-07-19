@@ -1,0 +1,14 @@
+{
+    "name": "down",
+    "tagMap": {
+        "down": true,
+        "fall": true,
+        "damage": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/down",
+        "duelist/swordman/damage3"
+    ],
+    "nextState": "sit",
+    "time": 500
+}

@@ -1,0 +1,13 @@
+{
+    "name": "move",
+    "tagMap": {
+        "move": true,
+        "free": true,
+        "autoPlay": true,
+        "moveable": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/move"
+    ],
+    "nextState": "stay"
+}

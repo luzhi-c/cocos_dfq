@@ -1,0 +1,21 @@
+{
+    "name": "flight",
+    "tagMap": {
+        "flight": true,
+        "fall": true,
+        "damage": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/damage1",
+        "duelist/swordman/damage2",
+        "duelist/swordman/damage3",
+        "duelist/swordman/damage4"
+    ],
+    "nextState": "down",
+    "sound":
+    {
+        "voice" : [
+            "actor/down"
+        ]
+    }
+}

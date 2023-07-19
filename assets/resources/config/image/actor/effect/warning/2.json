@@ -1,0 +1,6 @@
+ {
+    image : "$0",
+    "ox" : 19,
+    "oy" : 19,
+    blendmode : "add"
+}

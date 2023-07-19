@@ -1,0 +1,13 @@
+{
+    "name": "sit",
+    "tagMap": {
+        "sit": true,
+        "damage": true,
+        "autoPlay": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/sit"
+    ],
+    "nextState": "stay",
+    "time": 150
+}

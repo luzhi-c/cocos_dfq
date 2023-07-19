@@ -1,0 +1,13 @@
+{
+    "name": "stay",
+    "tagMap": {
+        "stay": true,
+        "free": true,
+        "autoPlay": true,
+        "moveable": true
+    },
+    "frameaniPath": [
+        "duelist/swordman/stay"
+    ],
+    "nextState": "move"
+}

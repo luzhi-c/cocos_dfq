@@ -1,0 +1,24 @@
+{
+    "name": {
+        "cn": "鬼剑术",
+        "en": "Ghost Fencing"
+    },
+    "icon": "$A",
+    "special": "为配合鬼手而生的|y剑术|b，可追加两次。",
+    "script": "base",
+    "state": "normalAttack",
+    "stateData": "duelist/swordman/normalAttack",
+    "subKind": "normalAttack",
+    "ai": {
+        "script": "battleJudge",
+        "collider": "duelist/swordman/katana/3-attack"
+    },
+    "order": 0,
+    "isCombo": true,
+    "attackValues": [
+        {
+            "damageRate": 0.4,
+            "isPhysical": true
+        }
+    ]
+}
