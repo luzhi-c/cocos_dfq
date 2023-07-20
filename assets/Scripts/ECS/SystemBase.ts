@@ -2,7 +2,7 @@ import { _decorator, Component, log, Node } from 'cc';
 import { QuickList } from '../Base/QuickList';
 import { EcsMgr } from './EcsMgr';
 import { World } from './World';
-import { EntityComponent } from './Components/EntityComponent';
+import { EntityComponent } from './Factory';
 const { ccclass, property } = _decorator;
 
 @ccclass('SystemBase')
@@ -15,7 +15,7 @@ export class SystemBase extends Component {
     protected ecsMgr: EcsMgr;
     protected passMap;
     protected systemName;
-    protected _list: QuickList<any>;
+    protected _list: QuickList<EntityComponent>;
     protected _adds = [];
     protected _dels = [];
 
@@ -72,7 +72,7 @@ export class SystemBase extends Component {
     }
 
     public OnEnter(entity: EntityComponent) {
-        log("OnEnter");
+        // log("OnEnter");
     }
 
     public Init() {
@@ -83,7 +83,7 @@ export class SystemBase extends Component {
     }
 
     public OnInit(entity: EntityComponent) {
-        log("OnInit");
+        // log("OnInit");
     }
 
     public Exit() {

@@ -23,7 +23,7 @@ export class SoundManager {
             if (this._cachedSoundList.has(sound)) {
                 if (this._cachedSoundList.get(sound).length > 0) {
                     audioSource = this._cachedSoundList.get(sound).pop();
-                    log("复用声音", sound);
+                    // log("复用声音", sound);
                 }
             }
             if (!audioSource) {

@@ -1,10 +1,10 @@
-import { input, Input, KeyCode } from "cc";
+import { input, Input, KeyCode, log } from "cc";
 import { EcsMgr } from "../EcsMgr";
 import { SystemBase } from "../SystemBase";
 import { World } from "../World";
 import InputComponent from "../Components/InputComponent";
 import Const from "../../Data/Const";
-import _INPUT, { _LIB_INPUT } from "../Service/Input";
+import _INPUT, { _LIB_INPUT, InputState } from "../Service/Input";
 
 export default class InputSystem extends SystemBase
 {
@@ -55,6 +55,17 @@ export default class InputSystem extends SystemBase
             let e = this._list.Get(i);
             let input: InputComponent = e.input;
             _LIB_INPUT.Update(input.map)
+
+            if (e.ais && e.ais.enable)
+            {
+                e.input.map.forEach((value, key) =>
+                {
+                    if (value == InputState.hold)
+                    {
+                        e.input.map.set(key, InputState.released);
+                    }
+                })
+            }
         }
     }
 }

@@ -12,6 +12,10 @@ import { Attack } from '../Game/Gear/Attack';
 import { OnceplaySystem } from './Systems/OnceplaySystem';
 import { EffectSystem } from './Systems/EffectSystem';
 import IdentitySystem from './Systems/IdentitySystem';
+import AISystem from './Systems/AISystem';
+import { AttackJudge } from '../Game/AI/AttackJudge';
+import { BattleJudge } from '../Game/AI/BattleJudge';
+import { SearchMove } from '../Game/AI/SearchMove';
 const { ccclass, property } = _decorator;
 
 @ccclass('World')
@@ -31,13 +35,19 @@ export class World extends Component {
         
         // 启动system
         this.addComponent(TransformSystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(IdentitySystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(AISystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(StatesSystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(InputSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(SkillSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(OnceplaySystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(EffectSystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(IdentitySystem).Start(GameEntry.World, GameEntry.EcsMgr);
+
+        // 放后面
+        this.addComponent(InputSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         Attack.Init();
+        SearchMove.Init();
+        AttackJudge.Init();
+        BattleJudge.Init();
     }
 
     public AddSystem(system: SystemBase) {
@@ -82,7 +92,10 @@ export class World extends Component {
                 this._updateList.Sort(this._Sorting);
                 this._lateUpdateList.Sort(this._Sorting);
                 // this._drawList.Sort(this._Sorting);
-                this._sortTick = false
+                this._sortTick = false;
+                // for (let i = 0; i < this._updateList.GetLength(); i++) {
+                //    log("排序后" ,this._updateList.Get(i).GetID())
+                // }
             }
             this._adds.sort(this._Sorting);
 

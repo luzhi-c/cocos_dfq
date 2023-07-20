@@ -1,8 +1,10 @@
-import { EntityComponent } from "../../ECS/Components/EntityComponent";
+
 import { StateBase } from "./StateBase";
 import { _STATE } from "../../ECS/Service/States";
 import _INPUT from "../../ECS/Service/Input";
 import Const from "../../Data/Const";
+import { EntityComponent } from "../../ECS/Factory";
+import { log } from "cc";
 
 export class Stay extends StateBase {
     public Init(entity: EntityComponent) {

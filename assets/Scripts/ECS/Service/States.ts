@@ -1,3 +1,4 @@
+import { log } from "cc";
 import { AspectComponent } from "../Components/AspectComponent";
 import { StatesComponent } from "../Components/StatesComponent";
 import { _ASPECT } from "./Aspect";

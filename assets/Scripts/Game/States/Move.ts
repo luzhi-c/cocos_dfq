@@ -1,11 +1,11 @@
 import { Input, KeyCode, input, sp } from "cc";
-import { EntityComponent } from "../../ECS/Components/EntityComponent";
 import { StateBase } from "./StateBase";
 import { _STATE } from "../../ECS/Service/States";
 import { ControlMove } from "../../ECS/ControlMove";
 import { Point } from "../Map/Bstar";
 import Const from "../../Data/Const";
 import { _ASPECT } from "../../ECS/Service/Aspect";
+import { EntityComponent } from "../../ECS/Factory";
 
 export class Move extends StateBase {
     private controlMove: ControlMove;

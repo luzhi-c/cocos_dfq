@@ -1,4 +1,3 @@
-import { EntityComponent } from "../../ECS/Components/EntityComponent";
 import { StateBase } from "./StateBase";
 import { _STATE } from "../../ECS/Service/States";
 import Const from "../../Data/Const";
@@ -6,6 +5,7 @@ import { _ASPECT } from "../../ECS/Service/Aspect";
 import { Timer } from "../../Base/Timer";
 import { _MATH } from "../../Utils/Math";
 import { EaseMove } from "../Gear/EaseMove";
+import { EntityComponent } from "../../ECS/Factory";
 
 export class Stun extends StateBase {
     private _timer: Timer;
@@ -23,7 +23,7 @@ export class Stun extends StateBase {
         super.Enter();
         this._timer.Enter(time);
         this._length = this.frameaniSet.length;
-        this._index = _MATH.RangeInt(0, this._length);
+        this._index = _MATH.RangeInt(0, this._length - 1);
         this._easemove.Enter("x", _MATH.GetFixedDecimal(power), _MATH.GetFixedDecimal(speed), direction)
         this.PlayAnimation(this._index);
     }

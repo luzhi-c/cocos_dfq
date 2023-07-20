@@ -1,8 +1,8 @@
 import { log } from "cc";
 import { AssetType, ResMgr } from "../../Mgr/ResMgr";
 import { SkillsComponent } from "../Components/SkillComponent";
-import { EntityComponent } from "../Components/EntityComponent";
 import { SkillBase } from "../../Game/Skill/SkillBase";
+import { EntityComponent } from "../Factory";
 
 export class _SKILLS {
     public static Set(entity: EntityComponent, key: string, skillPath: string) {

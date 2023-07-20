@@ -1,9 +1,11 @@
 import { log } from "cc";
 import { Timer } from "../../Base/Timer";
-import { EntityComponent } from "../../ECS/Components/EntityComponent";
 import { _ASPECT } from "../../ECS/Service/Aspect";
 import _INPUT from "../../ECS/Service/Input";
 import { _STATE } from "../../ECS/Service/States";
+import { EntityComponent } from "../../ECS/Factory";
+import { Judge } from "../AI/Judge";
+import { AIJudge_Define } from "../../Data/AIJudgeDefine";
 
 export type AttackValue =
     {
@@ -21,8 +23,11 @@ export class SkillBase {
     private time: number;
     public order: number;
     public _attackValues: AttackValue[];
+    // 充能技能 可以多次释放
     // private duraMax: number;
     // private dura: number;
+
+    public _judgeAI: Judge;
     private isCombo = false;
     public constructor(entity: EntityComponent, key: string, data) {
         this.entity = entity;
@@ -33,6 +38,12 @@ export class SkillBase {
         this.order = data.order || 0;
         this.state = data.state;
         this._attackValues = data.attackValues;
+        if (data.ai) {
+            let judge = AIJudge_Define[data.ai.script];
+            if (judge) {
+                this._judgeAI = judge.NewWithConfig(entity, data.ai);
+            }
+        }
     }
 
     public Update(dt: number, rate: number) {
@@ -47,6 +58,14 @@ export class SkillBase {
 
             this.Use();
         }
+    }
+
+    public AITick(noKey?: boolean) {
+        if (!this.CanUse() || !this._judgeAI) {
+            return false;
+        }
+        this._judgeAI.key = !noKey ? this.key : null;
+        return this._judgeAI.Tick();
     }
 
     public CanUse() {
@@ -80,5 +99,9 @@ export class SkillBase {
     public Reset() {
         this._timer.Exit();
         this.isCombo = true;
+    }
+
+    public GetKey() {
+        return this.key;
     }
 }

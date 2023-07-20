@@ -13,6 +13,8 @@ import { ComponentBase } from "./ComponentBase";
 import { IdentityComponent } from "./Components/IdentityComponent";
 import { EffectComponent } from "./Components/EffectComponent";
 import { OnceplayComponent } from "./Components/OnceplayComponent";
+import { AIComponent } from "./Components/AIComponent";
+import { BattleComponent } from "./Components/BattleComponent";
 
 export type EntityComponent =
     {
@@ -24,6 +26,8 @@ export type EntityComponent =
         effect?: EffectComponent;
         onceplay?: OnceplayComponent;
         transform?: TransformComponent;
+        ais?: AIComponent,
+        battle?: BattleComponent,
     }
 
 export class Factory {

@@ -54,7 +54,7 @@ export class StateBase {
     public frameaniSet: FrameaniData[];
     public attackDataSet: AttackDataSet[];
     public soundSet: SoundSet;
-    public colliderSet: JsonAsset[];
+    public colliderSet: string[];
     public collides: Map<string, Collider> = new Map(); // 碰撞框
 
     public statePath;
@@ -77,6 +77,7 @@ export class StateBase {
 
         this.soundSet = data.sound;
         this.attackDataSet = data.attack;
+        this.colliderSet = data.collider;
 
         // if (data.actor) {
         //     for (let i = 0; i < data.actor.length; i++) {

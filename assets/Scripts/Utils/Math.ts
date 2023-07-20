@@ -11,7 +11,13 @@ export class _MATH {
         return this.randomSeed / 233280;
     }
 
+    // max自增1 这样就包含自己了
     public static RangeInt(min: number, max: number) {
+        if (max <= min)
+        {
+            return min;
+        }
+        max = max + 1;
         let random = this.Random();
         return min + Math.floor((max - min) * random);
     }
@@ -47,9 +53,11 @@ export class _MATH {
             }
             list[i] = list[j];
             Set(list, i);
-            while (Compare(list[j], temp) < 0 && i < j) {
+            while (Compare(list[i], temp) < 0 && i < j) {
                 i++;
             }
+            list[j] = list[i];
+            Set(list, j);
         }
         list[i] = temp;
         Set(list, i);

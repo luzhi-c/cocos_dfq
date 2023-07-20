@@ -11,7 +11,7 @@
     "subKind": "normalAttack",
     "ai": {
         "script": "battleJudge",
-        "collider": "duelist/swordman/katana/3-attack"
+        "collider": "duelist/swordman/katana/3"
     },
     "order": 0,
     "isCombo": true,

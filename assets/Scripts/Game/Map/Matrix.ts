@@ -21,7 +21,7 @@ export class Matrix {
 
     public Reset(x?: number, y?: number, w?: number, h?: number, initOpenNodes?: boolean) {
         this._rect.Set(x, y, w, h);
-        this._bStar.Reset(this.ToNode(w) - 1, this.ToNode(h) - 1);
+        this._bStar.Reset(this.ToNode(w), this.ToNode(h));
         if (initOpenNodes) {
             this.InitOpenNodes();
         }

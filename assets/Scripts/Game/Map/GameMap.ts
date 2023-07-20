@@ -223,7 +223,7 @@ export class GameMap extends Component {
         }
     }
 
-    public GetMatrix(key?: string) {
+    public GetMatrix(key?: string): Matrix {
         key = key || "normal"
         return this.matrixGroup[key]
     }

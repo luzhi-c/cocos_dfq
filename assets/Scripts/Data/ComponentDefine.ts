@@ -1,4 +1,6 @@
+import { AIComponent } from "../ECS/Components/AIComponent";
 import { AspectComponent } from "../ECS/Components/AspectComponent";
+import { BattleComponent } from "../ECS/Components/BattleComponent";
 import { EffectComponent } from "../ECS/Components/EffectComponent";
 import { IdentityComponent } from "../ECS/Components/IdentityComponent";
 import InputComponent from "../ECS/Components/InputComponent";
@@ -17,4 +19,6 @@ export namespace Component_Define {
     export const effect = EffectComponent;
     export const identity = IdentityComponent;
     export const onceplay = OnceplayComponent;
+    export const battle = BattleComponent;
+    export const ais = AIComponent;
 }

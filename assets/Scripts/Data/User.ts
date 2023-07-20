@@ -1,5 +1,5 @@
 import { Caller } from "../Base/Caller";
-import { EntityComponent } from "../ECS/Components/EntityComponent";
+import { EntityComponent } from "../ECS/Factory";
 
 export default class User
 {
@@ -16,6 +16,8 @@ export default class User
         {
             return;
         }
+
+        player.ais.enable = false;
 
         this.setPlayerCaller.Call(this.player, player);
         this.player = player;
