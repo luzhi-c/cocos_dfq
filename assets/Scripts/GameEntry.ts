@@ -50,30 +50,26 @@ export class GameEntry extends Component {
         // 启动
         GameEntry.actorLayer = this.gameLayer;
         let mapsource = "lorien";
-        ResMgr.PreLoadMap(mapsource, () => {
-            // 创建地图
-            let node = Factory.NewNode("GameMap");
-            node.setParent(this.gameLayer);
-            GameEntry.GameMap = node.addComponent(GameMap);
-            GameEntry.GameMap.Init();
-            GameEntry.GameMap.LoadMap(mapsource);
 
-            ResMgr.PreLoad("duelist/swordman", () => {
-                GameEntry.World.Start();
-                let entity = Factory.New("duelist/swordman", {
-                    x: 700,
-                    y: 500,
-                    z: 0,
-                });
+        let node = Factory.NewNode("GameMap");
+        node.setParent(this.gameLayer);
+        GameEntry.GameMap = node.addComponent(GameMap);
+        GameEntry.GameMap.Init();
+        GameEntry.GameMap.LoadMap(mapsource);
 
-                Factory.New("duelist/swordman", {
-                    x: 800,
-                    y: 400,
-                    z: 0,
-                });
-                Const.user.SetPlayer(entity);
-            });
+        GameEntry.World.Start();
+        let entity = Factory.New("duelist/swordman", {
+            x: 700,
+            y: 500,
+            z: 0,
         });
+
+        Factory.New("duelist/swordman", {
+            x: 800,
+            y: 400,
+            z: 0,
+        });
+        Const.user.SetPlayer(entity);
     }
     public Update() {
         let dt = GameTime.GetDelta();

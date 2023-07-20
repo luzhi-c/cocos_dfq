@@ -1,4 +1,4 @@
-import { math } from "cc";
+import { log, math } from "cc";
 
 export class _MATH {
     public static randomSeed: number = 233280;

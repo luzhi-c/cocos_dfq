@@ -198,11 +198,12 @@ export class ResourceManager {
         return state;
     }
 
-    public PreLoad(path, cb) {
+    public PreLoad(path, cb, progress?) {
         let total = 0;
         let count = 0;
         let complete = () => {
             count += 1;
+            progress && progress(count, total);
             if (count >= total) {
                 this.PreLoadFrameani(path, cb);
             }
@@ -447,11 +448,12 @@ export class ResourceManager {
     }
 
 
-    public PreLoadMap(path, cb) {
+    public PreLoadMap(path, cb, progress?) {
         let total = 0;
         let count = 0;
         let complete = () => {
             count += 1;
+            progress && progress(count, total);
             if (count >= total) {
                 cb && cb();
             }

@@ -13,10 +13,70 @@ export class Point {
     }
 }
 
+export class FloatPoint3 {
+    private _x: number;
+    private _y: number;
+    private _z: number;
+    public set x(value) {
+        this._x = value;
+    }
+    public get x() {
+        return this._x;
+    }
+    public set y(value) {
+        this._y = value;
+    }
+    public get y() {
+        return this._y;
+    }
+    public set z(value) {
+        this._z = value;
+    }
+    public get z() {
+        return this._z;
+    }
+
+    public constructor(x?, y?, z?) {
+        this.x = x || 0;
+        this.y = y || 0;
+        this.z = z || 0;
+    }
+
+    public Set(x?, y?, z?) {
+        this.x = x || this.x;
+        this.y = y || this.y;
+        this.z = z || this.z;
+    }
+}
+
+
+
+
 export class Point3 {
-    public x: number;
-    public y: number;
-    public z: number;
+    private _x: number;
+    private _xx: number;
+    private _y: number;
+    private _yy: number;
+    private _z: number;
+    private _zz: number;
+    public set x(value) {
+        this._x = value;
+    }
+    public get x() {
+        return this._x;
+    }
+    public set y(value) {
+        this._y = value;
+    }
+    public get y() {
+        return this._y;
+    }
+    public set z(value) {
+        this._z = value;
+    }
+    public get z() {
+        return this._z;
+    }
 
     public constructor(x?, y?, z?) {
         this.x = x || 0;

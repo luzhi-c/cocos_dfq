@@ -50,15 +50,12 @@ export class AIMove extends AIBase {
     }
 
 
-    public Tick(x: number, y: number)
-    {
-        if (!this.CanRun())
-        {
+    public Tick(x: number, y: number) {
+        if (!this.CanRun()) {
             return false;
         }
         let matrix = GameEntry.GameMap.GetMatrix();
-        if (!matrix.GetNode(x, y))
-        {
+        if (!matrix.GetNode(x, y)) {
             let position = this.entity.transform.position;
             this._path = matrix.GetPath(position.x, position.y, x, y);
             this._index = -1;
@@ -92,20 +89,17 @@ export class AIMove extends AIBase {
         else {
             this._directionY = position.y < this._path[this._index].y ? 1 : -1;
         }
-
+        log(`${this._path[this._index].y}===${this.later.y}===${position.y} 结果${y}, _directionY = ${this._directionY}`)
         this.later.Set(position.x, position.y);
     }
 
-    public IsRunning()
-    {
+    public IsRunning() {
         return this._path != null;
     }
 
     // 目标点
-    public GetTarget()
-    {
-        if (!this.IsRunning())
-        {
+    public GetTarget() {
+        if (!this.IsRunning()) {
             return;
         }
         return this._path[this._path.length - 1];

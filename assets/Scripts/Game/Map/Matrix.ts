@@ -150,17 +150,32 @@ export class Matrix {
                 if ((type == "x" && x != path[i].x) || (type == "y" && y != path[i].y)) {
                     type = null;
                 }
-                else if (x == path[i].x && y == path[i].y) {
+                else if (x == path[i].x || y == path[i].y) {
                     path.splice(i, 1);
                 }
             }
-            if (!type) {
+            else {
                 if (x == path[i].x) {
                     type = "x";
                 }
                 else if (y == path[i].y) {
                     type = "y";
                 }
+            }
+        }
+        let cx = 0;
+        let cy = 0;
+        for (let i = path.length - 1; i >= 1; i--) {
+            let a = path[i];
+            let b = path[i - 1];
+            if (a.x - b.x == cx && a.y - b.y == cy)
+            {
+                path.splice(i, 1);
+            }
+            else
+            {
+                cx = a.x - b.x;
+                cy = a.y - b.y;
             }
         }
 

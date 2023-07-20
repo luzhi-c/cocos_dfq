@@ -18,6 +18,7 @@ export class GameCamera extends Component {
     public SetWorld(x, y, width, height) {
         this.worldPosition.Set(x, y);
         this.worldSize.Set(width, height);
+        this.SetScale(1.5);
     }
 
     public SetScale(scale: number) {
