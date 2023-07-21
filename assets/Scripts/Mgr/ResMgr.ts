@@ -9,6 +9,7 @@ export enum AssetType {
     sprite,
     map,
     audio,
+    music,
     collider,
     skills,
 
@@ -21,6 +22,7 @@ export class ResourceManager {
     private aspectCache = new Map();
     private stateCache = new Map();
     private audioCache = new Map();
+    private musicCache = new Map();
     private colliderCache = new Map();
     private skillsCache = new Map();
 
@@ -58,6 +60,8 @@ export class ResourceManager {
         }
         else if (type == AssetType.audio) {
             return this.audioCache.get(path);
+        } else if (type == AssetType.music) {
+            return this.musicCache.get(path);
         }
         else if (type == AssetType.collider) {
             return this.colliderCache.get(path);
@@ -98,6 +102,10 @@ export class ResourceManager {
 
     public GetStatePath(path) {
         return `config/state/${path}`;
+    }
+
+    public GetMusicPath(path) {
+        return `music/${path}`;
     }
 
     public GetAudioPath(path) {
@@ -461,6 +469,16 @@ export class ResourceManager {
 
         this.PreLoadMapData(path, (mapAsset) => {
             let config = mapAsset.json;
+            if (config.info) {
+                if (config.info.bgs) {
+                    total += 1;
+                    this.PreLoadAudioData(config.info.bgs, complete);
+                }
+                if (config.info.bgm) {
+                    total += 1;
+                    this.PreLoadMusicData(config.info.bgm, complete);
+                }
+            }
             if (config.far) {
                 total += 1;
                 this.LoadSpriteData(config.far, complete);
@@ -480,6 +498,18 @@ export class ResourceManager {
                 }
             }
         });
+    }
+
+    public PreLoadMusicData(path, cb) {
+        if (this.musicCache.has(path)) {
+            cb && cb(this.musicCache.get(path));
+            return;
+        }
+        this.LoadAsset(this.GetMusicPath(path), AudioClip, (audio) => {
+            this.musicCache.set(path, audio);
+            cb && cb(this.musicCache.get(path));
+        }
+        );
     }
 
     public PreLoadAudioData(path, cb) {

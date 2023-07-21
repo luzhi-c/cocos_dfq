@@ -1,4 +1,4 @@
-import { _decorator, Component, JsonAsset, log, Node, Sprite } from 'cc';
+import { _decorator, AudioSource, Component, JsonAsset, log, Node, Sprite } from 'cc';
 import { AssetType, ResMgr } from '../../Mgr/ResMgr';
 import { Caller } from '../../Base/Caller';
 import { Matrix } from './Matrix';
@@ -7,6 +7,7 @@ import { _MATH } from '../../Utils/Math';
 import { Tools } from '../../Utils/Tools';
 import { Factory } from '../../ECS/Factory';
 import { GameEntry } from '../../GameEntry';
+import { SoundMgr } from '../../Mgr/SoundMgr';
 const { ccclass, property } = _decorator;
 
 type MapNode =
@@ -54,6 +55,8 @@ export class GameMap extends Component {
             height: 0
         };
     private _layerGroup: Map<string, Node>;
+
+    private _bgs: AudioSource;
 
     public Init() {
         this.mapLoadedCaller = new Caller();
@@ -167,6 +170,15 @@ export class GameMap extends Component {
         this.OnLoaded(data);
         // 回调地图加载完成
         this.mapLoadedCaller.Call();
+        if (data.info.bgm)
+        {
+            SoundMgr.PlayMusic(data.info.bgm);
+        }
+
+        if (data.info.bgs)
+        {
+          this._bgs = SoundMgr.PlaySoundByCtrol(data.info.bgs, true);
+        }
     }
 
     public OnLoaded(data) {

@@ -6,7 +6,7 @@
         "type": "dungeon",
         "ground": "grass",
         "bgm": "lorien",
-        "bgs": "forest1",
+        "bgs": "map/forest1",
         "name": {
             "cn": "洛兰",
             "en": "Lorien"

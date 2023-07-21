@@ -7,6 +7,31 @@ export class SoundManager {
     public _playingSoundList: Map<string, AudioSource[]> = new Map();
     public _playingListByGroup: Map<number, AudioSource[]> = new Map();
 
+    public bgMusic: AudioSource;
+
+    public PlayMusic(music: string) {
+        if (!this.bgMusic) {
+            let node = new Node(music);
+            let audioSource = node.addComponent(AudioSource);
+            // 重复播放
+            audioSource.replicated = true;
+            this.bgMusic = audioSource;
+        }
+        let clip = ResMgr.GetAsset(music, AssetType.music);
+        this.bgMusic.clip = clip;
+        this.bgMusic.play();
+    }
+    // 不由本管理器控制的声音 由逻辑控制
+    public PlaySoundByCtrol(sound: string, isReplicated: boolean) {
+        let node = new Node(sound);
+        let audioSource = node.addComponent(AudioSource);
+        let clip = ResMgr.GetAsset(sound, AssetType.audio);
+        audioSource.clip = clip;
+        audioSource.replicated = isReplicated;
+        audioSource.play();
+        return audioSource;
+    }
+
     public PlaySound(sound: string, group?: number) {
         group = group || 0;
         if (!this._queueMap.has(sound)) {
@@ -27,7 +52,7 @@ export class SoundManager {
                 }
             }
             if (!audioSource) {
-                let node = new Node();
+                let node = new Node(sound);
                 audioSource = node.addComponent(AudioSource);
                 let clip = ResMgr.GetAsset(sound, AssetType.audio);
                 audioSource.clip = clip;
