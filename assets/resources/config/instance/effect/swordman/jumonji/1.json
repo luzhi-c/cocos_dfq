@@ -1,0 +1,10 @@
+{
+    "aspect": [
+        {
+            "type": "frameani",
+            "spritePath": "effect/swordman/jumonji",
+            "frameaniPath": "effect/swordman/jumonji/1",
+            "order": 10
+        }
+    ]
+}

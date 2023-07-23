@@ -3,6 +3,7 @@ import { AssetType, ResMgr } from "../../Mgr/ResMgr";
 import { SkillsComponent } from "../Components/SkillComponent";
 import { SkillBase } from "../../Game/Skill/SkillBase";
 import { EntityComponent } from "../Factory";
+import { Skill_Define } from "../../Data/SkillDefine";
 
 export class _SKILLS {
     public static Set(entity: EntityComponent, key: string, skillPath: string) {
@@ -18,13 +19,12 @@ export class _SKILLS {
         let skillCfg = data.json;
         // 增加状态
         if (skillCfg.state && skillCfg.stateData) {
-            entity.states.AddState(key, skillCfg.stateData);
+            entity.states.AddState(skillCfg.state, skillCfg.stateData);
         }
-        if (skillCfg.script == "base") {
-            skill = new SkillBase(entity, key, skillCfg);
-        }
-        else if (skillCfg.script == "normalAttack") {
-            // skill = new SkillBase(entity, key, skillCfg);
+        let cls = Skill_Define[skillCfg.script];
+        if (cls)
+        {
+            skill = new cls(entity, key, skillCfg);
         }
         entity.skills.container.Add(skill, key);
 

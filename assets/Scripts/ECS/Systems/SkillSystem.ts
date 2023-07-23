@@ -28,7 +28,7 @@ export default class SkillSystem extends SystemBase {
         for (let key in skills.data) {
             _SKILLS.Set(entity, key, skills.data[key]);
         }
-        skills.container.Sort(this._SkillSorting);
+        skills.container.Sort(this._SkillSorting.bind(this));
     }
 
     public Update(dt: number, rate: number): void {

@@ -1,0 +1,47 @@
+{
+    "colliderPath": [
+        "duelist/swordman/jumonji"
+    ],
+    "list": [
+        {
+            "sprite": "0",
+            "time": 40
+        },
+        {
+            "sprite": "1",
+            "time": 40
+        },
+        {
+            "sprite": "2",
+            "time": 40
+        },
+        {
+            "sprite": "3",
+            "time": 40
+        },
+        {
+            "sprite": "4",
+            "time": 80
+        },
+        {
+            "sprite": "5",
+            "time": 40
+        },
+        {
+            "sprite": "6",
+            "time": 40
+        },
+        {
+            "sprite": "7",
+            "time": 40
+        },
+        {
+            "sprite": "8",
+            "time": 40
+        },
+        {
+            "sprite": "9",
+            "time": 80
+        }
+    ]
+}

@@ -48,11 +48,14 @@
         "flight": "duelist/swordman/flight",
         "down": "duelist/swordman/down",
         "sit": "duelist/swordman/sit",
-        "normalAttack": "duelist/swordman/normalAttack"
+        "normalAttack": "duelist/swordman/normalAttack",
+        "jumonji": "duelist/swordman/jumonji"
+      
     },
     "aspect": [
         {
-            "path": "duelist/swordman",
+            "spritePath": "duelist/swordman",
+            "frameaniPath": "duelist/swordman",
             "avatar": "duelist/swordman",
             "type": "frameani",
             "parts": {
@@ -67,7 +70,9 @@
         }
     ],
     "skills": {
-        "normalAttack": "swordman/normalAttack"
+        "normalAttack": "swordman/normalAttack",
+        "skill1": "swordman/jumonji"
+       
     },
     "battle": {
         "dmgSound": [

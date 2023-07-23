@@ -21,7 +21,7 @@ export class SkillBase {
     private _timer: Timer;
     private state: string;
     private time: number;
-    public order: number;
+    public order: number = 0;
     public _attackValues: AttackValue[];
     // 充能技能 可以多次释放
     // private duraMax: number;

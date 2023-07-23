@@ -21,7 +21,7 @@ export class Container<T> {
 
     public Add(obj: T, tag?: string, order?: number) {
         if (tag && this._map.has(tag)) {
-
+            this.Del(tag);
         }
 
         let max = this._list.length;
@@ -83,9 +83,10 @@ export class Container<T> {
     }
 
     public Sort(Func: Function) {
-        for (let n = 0; n < this._list.length - 1; n++) {
-            for (let m = 0; m < this._list.length - n; m++) {
-                if (!Func(this._list[m], this._list[n])) {
+        let length = this._list.length - 1;
+        for (let n = 0; n < length - 1; n++) {
+            for (let m = 0; m < length - n; m++) {
+                if (!Func(this._list[m], this._list[m + 1])) {
                     let tmp = this._list[m];
                     this._list[m] = this._list[m + 1];
                     this._list[m + 1] = tmp;

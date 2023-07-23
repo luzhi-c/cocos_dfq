@@ -24,9 +24,10 @@ export class EffectComponent extends ComponentBase
         this.lockAlpha = data.lockAlpha || false;
 
         if (data.lockState && param.entity && param.entity.states){
+            this.lockState = true;
             this.state = param.entity.states.current;
         }
-        if (data.lockLife != null)
+        if (data.lockLife != null || data.lockLife != undefined)
         {
             this.lockLife = data.lockLife;
         }

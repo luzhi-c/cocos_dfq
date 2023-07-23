@@ -1,0 +1,17 @@
+{
+    "aspect" :  [
+        {
+            "type": "frameani",
+            "spritePath": "effect/swordman/jumonji",
+            "frameaniPath": "effect/swordman/jumonji/0",
+            "order": 10
+        }
+    ],
+    "effect" : {
+        "positionType" : "normal",
+        "lockRate" : true,
+        "lockStop" : true,
+        "lockState" : true,
+        "lockDirection" : true
+    }
+}

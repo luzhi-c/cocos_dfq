@@ -28,7 +28,8 @@ export type FrameaniData =
     };
 
 export class AspectPart {
-    public path: string;
+    public frameaniPath: string;
+    public spritePath: string;
     public avatar: string; // 记录部位层级等数据的配置路径
     public type: string; // 类型 动画 图片 或文字 预制体等
     public parts: Array<string>; //部位组合

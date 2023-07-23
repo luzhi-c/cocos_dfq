@@ -2,7 +2,8 @@
     "aspect": [
         {
             "type": "frameani",
-            "path": "effect/hitting/smallSlash2"
+            "frameaniPath": "effect/hitting/smallSlash2",
+            "spritePath": "effect/hitting/smallSlash2"
         }
     ]
 }

@@ -29,7 +29,7 @@ export class Attack extends Gear {
     private _hasAttacked = false;
     private _hasAttackedMap = new Map();
     private _timer: Timer = new Timer();
-    private collision: Map<BaseRender, string> = new Map();
+    public collision: Map<BaseRender, string> = new Map();
 
     private attackDataSet: AttackDataSet;
 

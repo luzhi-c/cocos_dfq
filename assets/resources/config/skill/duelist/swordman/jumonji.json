@@ -1,0 +1,28 @@
+{
+    "name": {
+        "cn": "十文字斩",
+        "en": "Cross Slash"
+    },
+    "icon": "$0/goreCross",
+    "script": "base",
+    "state": "jumonji",
+    "stateData": "duelist/swordman/jumonji",
+    "ai": {
+        "script": "battleJudge",
+        "collider": "duelist/swordman/katana/12"
+    },
+    "order": 1,
+    "time": 4000,
+    "mp": 150,
+    "special": "斩出|y交叉剑痕|b，随后|y血十字|b化现。",
+    "attackValues": [
+        {
+            "damageRate": 0.6825,
+            "isPhysical": true
+        },
+        {
+            "damageRate": 0.91,
+            "isPhysical": true
+        }
+    ]
+}

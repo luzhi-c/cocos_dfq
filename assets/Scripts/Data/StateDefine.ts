@@ -1,5 +1,6 @@
 import { Down } from "../Game/States/Down";
 import { Flight } from "../Game/States/Flight";
+import { Jumoji } from "../Game/States/Jumonji";
 import { Move } from "../Game/States/Move";
 import { NormalAttack } from "../Game/States/NormalAttack";
 import { Sit } from "../Game/States/Sit";
@@ -15,4 +16,5 @@ export namespace States_Define {
      export const down = Down;
      export const sit = Sit;
      export const normalAttack = NormalAttack;
+     export const jumonji = Jumoji;
 }

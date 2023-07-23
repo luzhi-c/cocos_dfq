@@ -64,11 +64,11 @@ export class GameEntry extends Component {
             z: 0,
         });
 
-        Factory.New("duelist/swordman", {
-            x: 800,
-            y: 400,
-            z: 0,
-        });
+        // Factory.New("duelist/swordman", {
+        //     x: 800,
+        //     y: 400,
+        //     z: 0,
+        // });
         Const.user.SetPlayer(entity);
     }
     public Update() {

@@ -55,6 +55,7 @@ export class StateBase {
     public attackDataSet: AttackDataSet[];
     public soundSet: SoundSet;
     public colliderSet: string[];
+    public actorSet: any[] = [];
     public collides: Map<string, Collider> = new Map(); // 碰撞框
 
     public statePath;
@@ -79,14 +80,9 @@ export class StateBase {
         this.attackDataSet = data.attack;
         this.colliderSet = data.collider;
 
-        // if (data.actor) {
-        //     for (let i = 0; i < data.actor.length; i++) {
-        //         if (data.actor[i].effect) {
-        //             total += 1;
-        //             this.PreLoadInstanceData(state.actor[i], complete);
-        //         }
-        //     }
-        // }
+        if (data.actor) {
+            this.actorSet = data.actor;
+        }
     }
 
     public Init(entity: EntityComponent) {

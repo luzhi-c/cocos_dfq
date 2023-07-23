@@ -84,7 +84,7 @@ export class Factory {
         } else if (type == "effect") {
             // 增加特效
             let cls = Component_Define["onceplay"];
-            if (cls && !entity.effect && data.onceplay != false) {
+            if (cls && !entity.onceplay && data.onceplay != false) {
                 let component: ComponentBase = node.addComponent(cls);
                 component.Init();
                 GameEntry.EcsMgr.AddComponent(entity, "onceplay", component);

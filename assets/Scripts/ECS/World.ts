@@ -34,15 +34,15 @@ export class World extends Component {
     public Start() {
         
         // 启动system
-        this.addComponent(TransformSystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(IdentitySystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(AISystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(StatesSystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(SkillSystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(OnceplaySystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(EffectSystem).Start(GameEntry.World, GameEntry.EcsMgr);
-
+        this.addComponent(TransformSystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(StatesSystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(OnceplaySystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(AISystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(SkillSystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        
         // 放后面
+        this.addComponent(IdentitySystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(InputSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         Attack.Init();
         SearchMove.Init();

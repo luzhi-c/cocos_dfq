@@ -14,7 +14,7 @@ export class FrameAniEx extends FrameAni {
     protected isPart: boolean = false; // 是否由多个部位动画组成
     protected parts: any;
     protected partsList: Array<string> = [];
-    protected aspectData: any;
+    protected aspectData: AspectPart;
     public frameaniParts: Map<string, Sprite> = new Map();
     public Init(aspect, data: AspectPart): void {
         super.Init(aspect, data);
@@ -24,7 +24,7 @@ export class FrameAniEx extends FrameAni {
             this.HandleData();
         }
         else {
-            let frameaniData = ResMgr.GetAsset(data.path, AssetType.frameani).json;
+            let frameaniData = ResMgr.GetAsset(data.frameaniPath, AssetType.frameani).json;
             this.isPart = false;
             this.SetNode();
             this.Play(frameaniData);
@@ -71,10 +71,10 @@ export class FrameAniEx extends FrameAni {
     public GetFramePartPath(key: string, sprite: string) {
         let url = "";
         if (this.isPart) {
-            url = `${this.aspectData.path}/${this.GetPartPath(key)}/${sprite}`;
+            url = `${this.aspectData.spritePath}/${this.GetPartPath(key)}/${sprite}`;
         }
         else {
-            url = `${this.aspectData.path}/${sprite}`;
+            url = `${this.aspectData.spritePath}/${sprite}`;
         }
         return ResMgr.GetFrameaniSpriteBasePath(url);
     }

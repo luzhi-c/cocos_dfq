@@ -121,6 +121,10 @@ export class ResourceManager {
     }
 
     public CacheSpriteData(path, sprite, spriteoffset) {
+        if (!sprite)
+        {
+            return;
+        }
         let spriteData = new SpriteData();
         if (spriteoffset) {
             let json: any = (spriteoffset as JsonAsset).json;
@@ -250,7 +254,7 @@ export class ResourceManager {
                                 this.PreLoadAspectData(value[i].avatar, complete);
                             }
                             else {
-                                this.PreLoadFrameAniData(value[i].path, complete);
+                                this.PreLoadFrameAniData(value[i].frameaniPath, complete);
                             }
                         }
                         total += 1;
@@ -328,21 +332,21 @@ export class ResourceManager {
                                 if (aspect[n].parts) {
                                     let keys = Object.keys(aspect[n].parts);
                                     for (let j = 0; j < keys.length; j++) {
-                                        let spritepath = aspect[n].path + "/" + aspect[n].parts[keys[j]] + "/" + frameani.list[i].sprite;
+                                        let spritepath = aspect[n].spritePath + "/" + aspect[n].parts[keys[j]] + "/" + frameani.list[i].sprite;
                                         total += 1;
                                         this.LoadSpriteData(this.GetFrameaniSpriteBasePath(spritepath), complete);
                                     }
                                 }
                                 else {
                                     for (let j = 0; j < aspect[n].parts.length; j++) {
-                                        let spritepath = aspect[n].path + "/" + frameani.list[i].sprite;
+                                        let spritepath = aspect[n].spritePath + "/" + frameani.list[i].sprite;
                                         total += 1;
                                         this.LoadSpriteData(this.GetFrameaniSpriteBasePath(spritepath), complete);
                                     }
                                 }
-                                for (let m = 0; m < frameani.colliderPath.length; m++) {
+                                for (let k = 0; k < frameani.colliderPath.length; k++) {
                                     total += 1;
-                                    this.PreLoadColliderData(frameani.colliderPath[m] + "/" + frameani.list[i].sprite, complete);
+                                    this.PreLoadColliderData(frameani.colliderPath[k] + "/" + frameani.list[i].sprite, complete);
                                 }
 
                             }
@@ -354,19 +358,19 @@ export class ResourceManager {
         } else if (instance.aspect) {
             let aspect = instance.aspect;
             for (let n = 0; n < aspect.length; n++) {
-                let frameani = this.GetAsset(aspect[n].path, AssetType.frameani).json;
+                let frameani = this.GetAsset(aspect[n].frameaniPath, AssetType.frameani).json;
                 for (let i = 0; i < frameani.list.length; i++) {
                     if (aspect[n].parts) {
                         let keys = Object.keys(aspect[n].parts);
                         for (let j = 0; j < keys.length; j++) {
-                            let spritepath = aspect[n].path + "/" + aspect[n].parts[keys[j]] + "/" + frameani.list[i].sprite;
+                            let spritepath = aspect[n].spritePath + "/" + aspect[n].parts[keys[j]] + "/" + frameani.list[i].sprite;
                             total += 1;
                             this.LoadSpriteData(this.GetFrameaniSpriteBasePath(spritepath), complete);
                         }
                     }
                     else {
                         total += 1;
-                        let spritepath = aspect[n].path + "/" + frameani.list[i].sprite;
+                        let spritepath = aspect[n].spritePath + "/" + frameani.list[i].sprite;
                         this.LoadSpriteData(this.GetFrameaniSpriteBasePath(spritepath), complete);
                     }
                     if (frameani.colliderPath) {
@@ -405,6 +409,7 @@ export class ResourceManager {
                 cb && cb();
             }
         };
+        
         if (state.sound) {
             for (let key in state.sound) {
                 let list = state.sound[key];
@@ -426,7 +431,7 @@ export class ResourceManager {
         if (state.actor) {
             for (let i = 0; i < state.actor.length; i++) {
                 total += 1;
-                this.PreLoadInstanceData(state.actor[i], complete);
+                this.PreLoad(state.actor[i], complete);
             }
         }
 

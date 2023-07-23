@@ -23,6 +23,7 @@ export default class Const {
         this.code.set(KeyCode.ARROW_LEFT, "left");
         this.code.set(KeyCode.ARROW_RIGHT, "right");
         this.code.set(KeyCode.KEY_X, "normalAttack");
+        this.code.set(KeyCode.KEY_A, "skill1");
     }
 
     public static SetScreenSize(width, height) {
