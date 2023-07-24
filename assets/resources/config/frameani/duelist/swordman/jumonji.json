@@ -4,48 +4,44 @@
     ],
     "list": [
         {
-            "sprite" : "194",
-            "time" : 40
+            "sprite": "10",
+            "time": 40
         },
         {
-            "sprite" : "195",
-            "time" : 40
+            "sprite": "11",
+            "time": 40
         },
         {
-            "sprite" : "191",
-            "time" : 40
+            "sprite": "12",
+            "time": 40
         },
         {
-            "sprite" : "192",
-            "time" : 40
+            "sprite": "13",
+            "time": 40
         },
         {
-            "sprite" : "193",
-            "time" : 40
+            "sprite": "14",
+            "time": 40
         },
         {
-            "sprite" : "211",
-            "time" : 40
+            "sprite": "15",
+            "time": 40
         },
         {
-            "sprite" : "212",
-            "time" : 80
+            "sprite": "200",
+            "time": 80
         },
         {
-            "sprite" : "218",
-            "time" : 40
+            "sprite": "201",
+            "time": 40
         },
         {
-            "sprite" : "219",
-            "time" : 40
+            "sprite": "202",
+            "time": 40
         },
         {
-            "sprite" : "220",
-            "time" : 40
-        },
-        {
-            "sprite" : "221",
-            "time" : 60
+            "sprite": "203",
+            "time": 40
         }
     ]
 }

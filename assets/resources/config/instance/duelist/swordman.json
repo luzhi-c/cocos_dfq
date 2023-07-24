@@ -64,6 +64,8 @@
                 "weapon_b": "katana/default_b",
                 "skin": "skin/default",
                 "pants": "pants/renewal",
+                "pants_b": "pants/renewal_b",
+                "pants_d": "pants/renewal_d",
                 "shoes": "shoes/renewal"
             },
             "name": "body"
