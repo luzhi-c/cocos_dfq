@@ -1,3 +1,4 @@
+import { log } from "cc";
 import { Container } from "../../Base/Container";
 import { Timer } from "../../Base/Timer";
 import { EntityComponent } from "../../ECS/Factory";
@@ -41,6 +42,7 @@ export class UseSkill extends AIBase {
         for (let i = 0; i < container.GetLength(); i++) {
             let skill = container.GetWithIndex(i);
             if (skill.AITick(true)) {
+                log(skill.GetKey());
                 return skill;
             }
         }

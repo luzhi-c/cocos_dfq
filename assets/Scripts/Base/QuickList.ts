@@ -25,8 +25,7 @@ export class QuickList<T> {
             this.Del(obj);
         }
         let max = this.list.length - 1;
-        if (max < 0)
-        {
+        if (max < 0) {
             max = 0;
         }
         order = order ? order : max;
@@ -40,9 +39,10 @@ export class QuickList<T> {
 
     public Del(obj) {
         if (this.map.has(obj)) {
+            let index = this.map.get(obj);
             // 删除
-            this.list.splice(this.map.get(obj), 1);
-            this.Refresh(this.map[obj]);
+            this.list.splice(index, 1);
+            this.Refresh(index);
             this.map.delete(obj);
         }
     }

@@ -1,3 +1,4 @@
+import { log } from "cc";
 import { QuickList } from "../../Base/QuickList";
 import { CollsiderData } from "../../Data/ConfigData";
 import { EntityComponent } from "../../ECS/Factory";

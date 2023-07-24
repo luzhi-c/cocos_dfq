@@ -36,9 +36,10 @@ export class World extends Component {
         // 启动system
         this.addComponent(EffectSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(TransformSystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        // ai要放在states前面 这样ai才能控制改变状态
+        this.addComponent(AISystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(StatesSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(OnceplaySystem).Start(GameEntry.World, GameEntry.EcsMgr);
-        this.addComponent(AISystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(SkillSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         
         // 放后面

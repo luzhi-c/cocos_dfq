@@ -1,6 +1,6 @@
 import { _decorator, Component, Node } from 'cc';
 import { QuickList } from '../Base/QuickList';
-import { EntityComponent } from './Components/EntityComponent';
+import { EntityComponent } from './Factory';
 const { ccclass, property } = _decorator;
 
 @ccclass('Combo')

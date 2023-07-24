@@ -1,4 +1,5 @@
-import { EntityComponent } from "../../ECS/Components/EntityComponent";
+
+import { EntityComponent } from "../../ECS/Factory";
 import { _ASPECT } from "../../ECS/Service/Aspect";
 import { _STATE } from "../../ECS/Service/States";
 import { SoundMgr } from "../../Mgr/SoundMgr";
@@ -34,6 +35,9 @@ export class Flight extends StateBase {
         super.Enter();
         let rebound = lateState == this && this.entity.transform.position.z == 0;
         // 将来这里可以减去他的质量 达到大怪击飞减半的效果
+        if (rebound) {
+            power_z = power_z < 0 ? 0 : power_z;
+        }
         let isLow = this.entity.transform.position.z >= -30;
         let isFall = lateState.HasTag("fall");
         power_z = _MATH.GetFixedDecimal(power_z);

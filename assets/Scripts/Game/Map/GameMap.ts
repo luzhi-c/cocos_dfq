@@ -172,12 +172,12 @@ export class GameMap extends Component {
         this.mapLoadedCaller.Call();
         if (data.info.bgm)
         {
-            // SoundMgr.PlayMusic(data.info.bgm);
+            SoundMgr.PlayMusic(data.info.bgm);
         }
 
         if (data.info.bgs)
         {
-        //   this._bgs = SoundMgr.PlaySoundByCtrol(data.info.bgs, true);
+          this._bgs = SoundMgr.PlaySoundByCtrol(data.info.bgs, true);
         }
     }
 
