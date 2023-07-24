@@ -3,8 +3,7 @@
     "tagMap": {
         "attack": true,
         "attackRate": true,
-        "autoPlay": true,
-        "cancel": true
+        "autoPlay": true
     },
     "frameaniPath": [
         "duelist/swordman/jumonji"

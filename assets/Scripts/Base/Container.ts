@@ -84,7 +84,7 @@ export class Container<T> {
 
     public Sort(Func: Function) {
         let length = this._list.length - 1;
-        for (let n = 0; n < length - 1; n++) {
+        for (let n = 0; n < length; n++) {
             for (let m = 0; m < length - n; m++) {
                 if (!Func(this._list[m], this._list[m + 1])) {
                     let tmp = this._list[m];

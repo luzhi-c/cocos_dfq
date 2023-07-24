@@ -13,8 +13,7 @@ export class _MATH {
 
     // max自增1 这样就包含自己了
     public static RangeInt(min: number, max: number) {
-        if (max <= min)
-        {
+        if (max <= min) {
             return min;
         }
         max = max + 1;
@@ -48,16 +47,24 @@ export class _MATH {
         let j = right;
         let temp = list[i];
         while (i < j) {
-            while (Compare(list[j], temp) >= 0 && i < j) {
+            while (!Compare(list[j], temp) && i < j) {
                 j--;
             }
-            list[i] = list[j];
-            Set(list, i);
-            while (Compare(list[i], temp) < 0 && i < j) {
+            if (i < j) {
+                list[i] = list[j];
+                Set(list, i);
                 i++;
             }
-            list[j] = list[i];
-            Set(list, j);
+
+            while (Compare(list[i], temp) && i < j) {
+                i++;
+            }
+            if (i < j) {
+                list[j] = list[i];
+                Set(list, j);
+                j--;
+            }
+
         }
         list[i] = temp;
         Set(list, i);

@@ -1,4 +1,4 @@
-import { _decorator, Component, log, Node } from 'cc';
+import { _decorator, Component, log, Node, warn } from 'cc';
 import { StateBase } from '../../Game/States/StateBase';
 import { States_Define } from '../../Data/StateDefine';
 const { ccclass, property } = _decorator;
@@ -28,7 +28,7 @@ export class StatesComponent extends Component {
         }
         let cls = States_Define[stateName];
         if (!cls) {
-            log("状态添加失败")
+            warn("状态添加失败")
             return;
         }
         let state: StateBase = new cls();

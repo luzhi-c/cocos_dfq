@@ -23,9 +23,9 @@ export class TransformSystem extends SystemBase {
         let transformB = b.transform;
         if (transformA.position.y == transformB.position.y)
         {
-            return a.identity.id - b.identity.id;
+            return a.identity.id < b.identity.id;
         }
-        return transformA.position.y - transformB.position.y;
+        return transformA.position.y < transformB.position.y;
     }
 
     public OnInit(entity: EntityComponent) {

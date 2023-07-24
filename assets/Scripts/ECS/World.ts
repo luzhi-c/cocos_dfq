@@ -98,7 +98,7 @@ export class World extends Component {
                 //    log("排序后" ,this._updateList.Get(i).GetID())
                 // }
             }
-            this._adds.sort(this._Sorting);
+            this._adds.sort(this.Sorting);
 
             for (let i = 0; i < this._adds.length; i++) {
                 this._adds[i].Enter();
@@ -118,7 +118,7 @@ export class World extends Component {
         }
 
         if (GameEntry.EcsMgr.DelComponentTick()) {
-            this._dels.sort(this._Sorting);
+            this._dels.sort(this.Sorting);
             for (let i = 0; i < this._dels.length; i++) {
                 this._dels[i].Exit();
             }
@@ -126,8 +126,12 @@ export class World extends Component {
         }
     }
 
-    private _Sorting(a: SystemBase, b: SystemBase): number {
+    private Sorting(a: SystemBase, b: SystemBase): number {
         return a.GetID() - b.GetID();
+    }
+
+    private _Sorting(a: SystemBase, b: SystemBase): boolean {
+        return a.GetID() < b.GetID();
     }
 }
 

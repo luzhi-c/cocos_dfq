@@ -89,7 +89,7 @@ export class AIMove extends AIBase {
         else {
             this._directionY = position.y < this._path[this._index].y ? 1 : -1;
         }
-        log(`${this._path[this._index].y}===${this.later.y}===${position.y} 结果${y}, _directionY = ${this._directionY}`)
+        // log(`${this._path[this._index].y}===${this.later.y}===${position.y} 结果${y}, _directionY = ${this._directionY}`)
         this.later.Set(position.x, position.y);
     }
 

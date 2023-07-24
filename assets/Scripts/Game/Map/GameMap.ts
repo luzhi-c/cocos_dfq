@@ -1,4 +1,4 @@
-import { _decorator, AudioSource, Component, JsonAsset, log, Node, Sprite } from 'cc';
+import { _decorator, AudioSource, Component, JsonAsset, log, Node, Sprite, warn } from 'cc';
 import { AssetType, ResMgr } from '../../Mgr/ResMgr';
 import { Caller } from '../../Base/Caller';
 import { Matrix } from './Matrix';
@@ -225,7 +225,7 @@ export class GameMap extends Component {
         }
         let spriteData = ResMgr.GetAsset(path, AssetType.sprite);
         if (!spriteData) {
-            log("未加载到")
+            warn("未加载到")
             return;
         }
         let count = Math.ceil(width / spriteData.width);

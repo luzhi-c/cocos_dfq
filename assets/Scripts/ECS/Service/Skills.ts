@@ -1,4 +1,4 @@
-import { log } from "cc";
+import { log, warn } from "cc";
 import { AssetType, ResMgr } from "../../Mgr/ResMgr";
 import { SkillsComponent } from "../Components/SkillComponent";
 import { SkillBase } from "../../Game/Skill/SkillBase";
@@ -13,7 +13,7 @@ export class _SKILLS {
         }
         let data = ResMgr.GetAsset(skillPath, AssetType.skills);
         if (!data) {
-            log("未加载到技能配置");
+            warn("未加载到技能配置");
             return;
         }
         let skillCfg = data.json;

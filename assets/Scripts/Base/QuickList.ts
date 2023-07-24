@@ -1,4 +1,4 @@
-import { log } from "cc";
+import { log, warn } from "cc";
 import { SystemBase } from "../ECS/SystemBase";
 import { _MATH } from "../Utils/Math";
 
@@ -22,6 +22,7 @@ export class QuickList<T> {
 
     public Add(obj: T, order?: number) {
         if (this.map.has(obj)) {
+            warn("正在添加已有的组件")
             this.Del(obj);
         }
         let max = this.list.length - 1;
@@ -40,8 +41,9 @@ export class QuickList<T> {
     public Del(obj) {
         if (this.map.has(obj)) {
             let index = this.map.get(obj);
+            log(`正在删除的索引 ==${index}`)
             // 删除
-            this.list.splice(index, 1);
+            this.list.splice(index, 1); 
             this.Refresh(index);
             this.map.delete(obj);
         }
@@ -69,7 +71,7 @@ export class QuickList<T> {
 
 
     public HasValue(obj) {
-        return this.map.get(obj) != null;
+        return this.map.has(obj);
     }
 
     public Sort(sortFunc) {
