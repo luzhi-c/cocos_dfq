@@ -4,12 +4,14 @@ import { _ASPECT } from "../../ECS/Service/Aspect";
 import { _STATE } from "../../ECS/Service/States";
 import { SoundMgr } from "../../Mgr/SoundMgr";
 import { _MATH } from "../../Utils/Math";
+import { IBeaten } from "../Gear/Beaten";
 import { EaseMove } from "../Gear/EaseMove";
 import { StateBase } from "./StateBase";
 
 enum _processEnum { up_1, up_2, up_3, down_1, down_2 };
 
-export class Flight extends StateBase {
+export class Flight extends StateBase implements IBeaten{
+    
     private easeMoveX: EaseMove;
     private easeMoveZ: EaseMove;
 
@@ -58,9 +60,27 @@ export class Flight extends StateBase {
         this._isLow = isLow && this._power_z <= 5;
         this._isBound = isFall && this._isLow;
         this._inRotate = false;
+
+        this._isBeaten = this.entity.identity.isPaused;
+        this.OnBeaten();
+    }
+
+    OnBeaten(): void {
+        if (this._isBeaten && this._process == _processEnum.down_1 || this._process == _processEnum.down_2)
+        {
+            this.easeMoveZ.SetPower(0);
+        }
+        this.PlayAnimation();
     }
 
     public Update(dt: number, rate: number): void {
+
+        if (this.entity.identity.isPaused != this._isBeaten)
+        {
+            this._isBeaten = !this._isBeaten;
+            this.OnBeaten();
+        }
+
         super.Update(dt, rate);
     }
 

@@ -34,6 +34,8 @@ type FlightParam =
     }
 export type AttackDataSet =
     {
+        hitstop?: number;
+        selfstop?: number;
         interval?: number;
         collision?: object;
         shake?: ShakeParam;
@@ -98,9 +100,10 @@ export class StateBase {
     }
 
     public Update(dt: number, rate: number) {
-        let identity;
-
-        this.NormalUpdate(dt, rate);
+        if (!this.entity.identity.isPaused)
+        {
+            this.NormalUpdate(dt, rate);
+        }
     }
 
     public NormalUpdate(dt: number, rate: number) {

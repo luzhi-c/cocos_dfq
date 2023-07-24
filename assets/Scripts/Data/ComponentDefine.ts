@@ -1,6 +1,8 @@
 import { AIComponent } from "../ECS/Components/AIComponent";
 import { AspectComponent } from "../ECS/Components/AspectComponent";
+import { AttackerComponent } from "../ECS/Components/AttackerComponent";
 import { BattleComponent } from "../ECS/Components/BattleComponent";
+import { DuelistComponent } from "../ECS/Components/DuelistComponent";
 import { EffectComponent } from "../ECS/Components/EffectComponent";
 import { IdentityComponent } from "../ECS/Components/IdentityComponent";
 import InputComponent from "../ECS/Components/InputComponent";
@@ -21,4 +23,6 @@ export namespace Component_Define {
     export const onceplay = OnceplayComponent;
     export const battle = BattleComponent;
     export const ais = AIComponent;
+    export const attacker = AttackerComponent;
+    export const duelist = DuelistComponent;
 }

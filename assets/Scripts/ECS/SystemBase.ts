@@ -19,7 +19,7 @@ export class SystemBase extends Component {
     protected _adds = [];
     protected _dels = [];
 
-    public Start(world: World, ecsmgr: EcsMgr, passMap, name) {
+    public Start(world: World, ecsmgr: EcsMgr, passMap?, name?) {
         SystemBase._Count += 1;
         this.world = world;
         this.ecsMgr = ecsmgr;

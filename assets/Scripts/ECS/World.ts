@@ -16,6 +16,8 @@ import AISystem from './Systems/AISystem';
 import { AttackJudge } from '../Game/AI/AttackJudge';
 import { BattleJudge } from '../Game/AI/BattleJudge';
 import { SearchMove } from '../Game/AI/SearchMove';
+import { BattleSystem } from './Systems/BattleSystem';
+import { AttackerSystem } from './Systems/AttackerSystem';
 const { ccclass, property } = _decorator;
 
 @ccclass('World')
@@ -34,11 +36,13 @@ export class World extends Component {
     public Start() {
         
         // 启动system
+        this.addComponent(AttackerSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(EffectSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(TransformSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         // ai要放在states前面 这样ai才能控制改变状态
         this.addComponent(AISystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(StatesSystem).Start(GameEntry.World, GameEntry.EcsMgr);
+        this.addComponent(BattleSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(OnceplaySystem).Start(GameEntry.World, GameEntry.EcsMgr);
         this.addComponent(SkillSystem).Start(GameEntry.World, GameEntry.EcsMgr);
         

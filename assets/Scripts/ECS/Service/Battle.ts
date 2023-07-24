@@ -1,8 +1,25 @@
+import { AttackerComponent } from "../Components/AttackerComponent";
+import { IdentityComponent } from "../Components/IdentityComponent";
 import { StatesComponent } from "../Components/StatesComponent";
 import { TransformComponent } from "../Components/TransformComponent";
 import { _STATE } from "./States";
 
 export class _BATTLE {
+    // 打击顿帧 卡顿 卡肉感
+    public static HitStop(attacker: AttackerComponent, identity: IdentityComponent, time: number, disableAttack?: boolean)
+    {
+        identity.isPaused = time > 0;
+        attacker.stopTimer.Enter(time);
+        if (disableAttack)
+        {
+            attacker.enable = !disableAttack;
+        }
+        else
+        {
+            attacker.enable = true;
+        }
+    }
+
     // 强制转向
     public static Turn(transform: TransformComponent, x, direction?: number) {
         let origin = transform.direction;

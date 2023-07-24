@@ -31,30 +31,34 @@ export class OnceplaySystem extends SystemBase {
         for (let i = 0; i < this._list.GetLength(); i++) {
             let e: EntityComponent = this._list.Get(i);
             let onceplay: OnceplayComponent = e.onceplay;
-            if (onceplay.timer) {
-                onceplay.timer.Update(dt);
-                if (!onceplay.timer.isRunning) {
-                    // 死亡
-                }
-            }
-            if (onceplay.type) {
-                let done = true;
-                if (onceplay.objs == "all") {
+            if (!e.identity.isPaused) {
 
+                if (onceplay.timer) {
+                    onceplay.timer.Update(dt);
+                    if (!onceplay.timer.isRunning) {
+                        // 死亡
+                    }
                 }
-                else {
-                    done = this._Handle(e, "body");
-                }
+                if (onceplay.type) {
+                    let done = true;
+                    if (onceplay.objs == "all") {
 
-                if (done) {
-                    if (e.onceplay.type == "normal") {
-                        e.identity.destroyProcess = 1;
-                        _ASPECT.ClearCollider(e.aspect);
-                    } else if (e.onceplay.type == "paused") {
-                        e.aspect.isPause = true;
+                    }
+                    else {
+                        done = this._Handle(e, "body");
+                    }
+
+                    if (done) {
+                        if (e.onceplay.type == "normal") {
+                            e.identity.destroyProcess = 1;
+                            _ASPECT.ClearCollider(e.aspect);
+                        } else if (e.onceplay.type == "paused") {
+                            e.aspect.isPause = true;
+                        }
                     }
                 }
             }
+
         }
     }
 }

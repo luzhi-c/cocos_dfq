@@ -15,6 +15,7 @@ import { EffectComponent } from "./Components/EffectComponent";
 import { OnceplayComponent } from "./Components/OnceplayComponent";
 import { AIComponent } from "./Components/AIComponent";
 import { BattleComponent } from "./Components/BattleComponent";
+import { AttackerComponent } from "./Components/AttackerComponent";
 
 export type EntityComponent =
     {
@@ -28,6 +29,7 @@ export type EntityComponent =
         transform?: TransformComponent;
         ais?: AIComponent,
         battle?: BattleComponent,
+        attacker?: AttackerComponent,
     }
 
 export class Factory {
@@ -98,6 +100,16 @@ export class Factory {
                 let component: ComponentBase = node.addComponent(cls);
                 component.Init(null, params);
                 GameEntry.EcsMgr.AddComponent(entity, "transform", component);
+            }
+        }
+
+        if (entity.battle && !entity.attacker)
+        {
+            let cls = Component_Define["attacker"];
+            if (cls) {
+                let component: ComponentBase = node.addComponent(cls);
+                component.Init(null, params);
+                GameEntry.EcsMgr.AddComponent(entity, "attacker", component);
             }
         }
         return entity;

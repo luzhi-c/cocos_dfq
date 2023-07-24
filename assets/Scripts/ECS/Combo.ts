@@ -20,12 +20,14 @@ export class Combo {
     }
 
     public Filter(entity): boolean {
-        for (let key in this.passMap.keys()) {
+        let filter = true;
+        this.passMap.forEach((value, key) => {
             if (!entity[key]) {
+                filter = false;
                 return false;
             }
-        }
-        return true;
+        });
+        return filter;
     }
 
     public CheckPassed(key): boolean {

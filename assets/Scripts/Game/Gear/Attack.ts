@@ -12,6 +12,7 @@ import { AttackValue } from "../Skill/SkillBase";
 import { AttackDataSet } from "../States/StateBase";
 import { _STATE } from "../../ECS/Service/States";
 import { EntityComponent, Factory } from "../../ECS/Factory";
+import { _MATH } from "../../Utils/Math";
 
 type AttackResult =
     {
@@ -112,6 +113,18 @@ export class Attack extends Gear {
                     let isTurn = _BATTLE.Turn(e.transform, ax);
 
                     let hitDirection = -e.transform.direction;
+                    // 对敌人顿帧
+                    if (this.attackDataSet.hitstop) {
+                        let hitstop = this.attackDataSet.hitstop;
+                        hitstop = _MATH.RangeInt(1, 2) == 1 ? hitstop * 2 : hitstop;
+                        _BATTLE.HitStop(e.attacker, e.identity, hitstop);
+                    }
+                    // 对自己顿帧
+                    if (this.attackDataSet.selfstop) {
+                        let selfstop = this.attackDataSet.selfstop;
+                        selfstop = _MATH.RangeInt(1, 2) == 1 ? selfstop * 2 : selfstop;
+                        _BATTLE.HitStop(this.entity.attacker, this.entity.identity, selfstop);
+                    }
                     if (e.states) {
                         let hasOverturn = false; // 强制位移
                         let hasFlight = false; // 击飞
@@ -136,11 +149,11 @@ export class Attack extends Gear {
                     }
 
                     let params = {
-                        x : result.x,
-                        y : e.transform.position.y,
-                        z : result.z,
-                        direction : this.entity.transform.direction,
-                        entity : e
+                        x: result.x,
+                        y: e.transform.position.y,
+                        z: result.z,
+                        direction: this.entity.transform.direction,
+                        entity: e
                     };
 
                     this.NewEffect(this.attackDataSet.effect, params);
@@ -175,8 +188,7 @@ export class Attack extends Gear {
         return result;
     }
 
-    public NewEffect(effect: string, params: any)
-    {
+    public NewEffect(effect: string, params: any) {
         Factory.New(effect, params, "effect");
     }
 }

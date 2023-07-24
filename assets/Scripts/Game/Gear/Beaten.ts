@@ -1,12 +1,5 @@
-export class Beaten {
-    public constructor() {
-    }
-
-    public Update(self) {
-
-    }
-
-    public Enter(self) {
-
-    }
+export interface IBeaten {
+    Update(...params): void;
+    Enter(...params): void;
+    OnBeaten(): void;
 }

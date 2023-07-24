@@ -76,6 +76,11 @@ export class EffectSystem extends SystemBase {
             let e: EntityComponent = this._list.Get(i);
             if (e.identity.superior) {
                 let superior = e.identity.superior;
+                if (e.effect.lockStop)
+                {
+                    e.identity.isPaused = superior.identity.isPaused;
+                }
+
                 if (e.effect.lockLife && superior.identity.destroyProcess > 0) {
                     e.identity.destroyProcess = 1;
                 }

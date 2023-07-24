@@ -37,10 +37,7 @@ export class TransformSystem extends SystemBase {
         for (let i = 0; i < this._list.GetLength(); i++) {
             let e: EntityComponent = this._list.Get(i);
             let aspect: AspectComponent = e.aspect;
-            // if (!e.identity.isPause && !aspect.isPause) {
-            //     aspect.layer.Update(dt);
-            // }
-            if (!aspect.isPause) {
+            if (!e.identity.isPaused && !aspect.isPause) {
                 aspect.layer.Update(dt);
             }
         }
